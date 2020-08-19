@@ -33,28 +33,61 @@ def get_matching(encoder_output,img_resized):
         dist={}
         for i in range(len(ref)):
             if(i!=n):
-                kk=cosine_similarity(ref[n],ref[i])
+                kk=cosine_similarity(ref[n],ref[i])  #Using cosine similarity to get nearest images
                 dist[i]=kk
         dist = sorted(dist.items(), key=lambda x: x[1], reverse=True)
 
         idex=dist
         no_of_channels=3
-
+        print('Enter the number of n nearest images that you want to see')
+        k=int(input())
         plt.imshow(img_resized[n].reshape(img_size,img_size,no_of_channels),cmap='gray')
-
-        fig, axes = plt.subplots(3, 3,figsize=(15,15))
-        axes[0,0].imshow(img_resized[idex[0][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-        #ax1.set_title('Orignal')
-        axes[0,1].imshow(img_resized[idex[1][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-        #ax2.set_title('PREDICTED')
-        axes[0,2].imshow(img_resized[idex[2][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')    
-
-        axes[1,0].imshow(img_resized[idex[3][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-        axes[1,1].imshow(img_resized[idex[4][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-        axes[1,2].imshow(img_resized[idex[5][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-
-        axes[2,0].imshow(img_resized[idex[6][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-        axes[2,1].imshow(img_resized[idex[7][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
-        axes[2,2].imshow(img_resized[idex[8][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
+        if(k%3!=0):
+            rw=int(k/3)+1
+        else:
+            rw=k/3
+        
+        c=0
+        count=0
+        if(k<=3):
+            fig, axes = plt.subplots(1,3,figsize=(15,15))
+            for i in range(1):
+                axes[0].imshow(img_resized[idex[c][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
+                #ax1.set_title('Orignal')
+                c=c+1
+                count=count+1
+                if(count>=k):
+                    break
+                axes[1].imshow(img_resized[idex[c][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
+                #ax2.set_title('PREDICTED')
+                c=c+1
+                count=count+1
+                if(count>=k):
+                    break
+                axes[2].imshow(img_resized[idex[c][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')    
+                c=c+1
+                count=count+1
+                if(count>=k):
+                    break
+        else:   
+            fig, axes = plt.subplots(rw,3,figsize=(15,15))
+            for i in range(rw):
+                axes[i,0].imshow(img_resized[idex[c][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
+                #ax1.set_title('Orignal')
+                c=c+1
+                count=count+1
+                if(count>=k):
+                    break
+                axes[i,1].imshow(img_resized[idex[c][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')
+                #ax2.set_title('PREDICTED')
+                c=c+1
+                count=count+1
+                if(count>=k):
+                    break
+                axes[i,2].imshow(img_resized[idex[c][0]].reshape(img_size,img_size,no_of_channels),cmap='gray')    
+                c=c+1
+                count=count+1
+                if(count>=k):
+                    break
         plt.show()
         n=int(input())
