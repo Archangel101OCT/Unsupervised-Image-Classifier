@@ -27,8 +27,11 @@ REQUIREMENTS:
 INSTRUCTIONS TO RUN:
 
 1)Install the above libraries
+
 2)Extract all the images into the dataset folder,
+
 NOTE:EXTRACT THE IMAGES DIRECTLY INTO THE "dataset" folder directly without any sub-folders.
+
 3)Run main.py or open and run driver.ipynb in Jupyter Notebook
 
 CODED BY:
