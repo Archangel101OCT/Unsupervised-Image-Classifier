@@ -1,15 +1,25 @@
 REQUIREMENTS:
 
 1)numpy v1.19.0
+
 2)pandas v1.0.5
+
 3)tenserflow v2.2.0
+
 4)keras v2.4.3
+
 5)matplotlib
+
 6)seaborn
+
 7)sklearn
+
 8)scipy
+
 9)cv2 v4.2.0
+
 10)pickle (optional)
+
 11)h5py v2.10.0
 
 
