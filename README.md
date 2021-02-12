@@ -34,5 +34,4 @@ NOTE:EXTRACT THE IMAGES DIRECTLY INTO THE "dataset" folder directly without any 
 
 3)Run main.py or open and run driver.ipynb in Jupyter Notebook
 
-CODED BY:
-ANUJ BALODI
+
